@@ -1,5 +1,5 @@
 /* Selection options are FIRST (first rows) or RANDOM (random sample) */
-%let selection=FIRST;
+%let selection=RANDOM;
 
 /* GET TOTAL ROW COUNT FROM TABLE */
 	
@@ -22,10 +22,17 @@
 	title1 color="#545B66" "Sample from SASHELP.HOMEEQUITY";
 	title2 height=3 "Random Sample 20 of &N Rows";
 	
-	proc surveyselect data=sashelp.homeequity(keep=Bad Loan MortDue Value) 
+/*	proc surveyselect data=sashelp.homeequity(keep=Bad Loan MortDue Value) 
 	                  method=srs n=20
 	                  out=sample noprint;
-	run;  
+
+	run;
+*/
+
+	data sample;
+	    set sashelp.homeequity(obs=20 keep=Bad Loan MortDue Value);
+	run;
+  
 %end; 
 
 /* PRINT SAMPLE */
