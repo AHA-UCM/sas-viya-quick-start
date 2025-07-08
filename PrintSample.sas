@@ -1,3 +1,5 @@
+/* MABRANCHETEST */
+
 /* Selection options are FIRST (first rows) or RANDOM (random sample) */
 %let selection=FIRST;
 
